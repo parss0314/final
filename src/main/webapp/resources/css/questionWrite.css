@@ -1,0 +1,44 @@
+#borderDiv{
+	width: 705px;
+	height: 280px;
+}
+
+#textarea{
+	width: 692px;
+	height: 150px;
+	resize: none;
+}
+
+h3{
+	margin-right: 550px;
+}
+
+#se{
+	position: relative;
+	top: 20px;
+}
+
+.button{
+	padding: 5px 2px 5px 2px;
+	border-radius: 5px;
+	position: relative;
+	bottom: 40px;
+	width: 184px;
+	font-weight: bold;
+}
+
+.button:hover{
+	cursor: pointer;
+}
+
+#submit{
+	background: rgb(0, 117, 239);
+	color: #fff;
+	margin-left: 50px;
+	margin-right: 215px;
+}
+
+
+
+
+

@@ -1,0 +1,142 @@
+@charset "UTF-8";
+
+/* ------ normalize ------ */
+* {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-family: "맑은 고딕";
+}
+/* ----------------------- */
+
+.container {
+	width: 1080px;
+    margin: 0 auto;
+    display: grid;
+}
+
+.main_right {
+	overflow: hidden;
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+}
+
+/* -------- 인기 클럽 -------- */
+.top_club_list {
+	height: 250px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	margin-top: 40px;
+	border-bottom: 1px solid #D9D9D9;
+}
+
+.top_club_list .img_area {
+	height: 130px;
+}
+
+.top_club_list .img_area img{
+	width: 100px;
+	height: 100px;
+}
+
+.top_club_list .text_area {
+	width: 155px;
+}
+
+.top_club_list .text_area > h2 {
+	font-size: 17px;
+}
+
+.top_club_title {
+	text-align: left;
+	margin-top : 10px;
+	margin-left: 15px;
+}
+/* ------------------------ */
+
+/* -------- 일반 클럽 -------- */
+.club_list {
+	padding-left: 3px;
+	padding-top: 10px;
+}
+
+.club {
+	display: inline-block;
+	box-sizing: border-box;
+	margin: 6px 25px;
+}
+
+.club_sort {
+	margin: 35px 0px 40px 22px;
+}
+
+.club_title {
+	text-align: left;
+	margin-top : 10px;
+	margin-left: 20px;
+}
+
+.club_sort > a {
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 15px;
+}
+
+.club_list_btn {
+/* 	position: relative; */
+	float: right;
+	padding: 5px 50px 20px 0px;
+}
+
+.club_list_check {
+	float: right;
+}
+/* ------------------------ */
+
+.img_area {
+	width: 200px;
+	height: 180px;
+	overflow: hidden;   /* 틀은 고정된 채로 이미지만 확대 */
+	
+	/* 내부 요소 중앙 정렬 */
+	display: flex;
+	justify-content: center;   /* 수평 정렬 */
+  	align-items: center;	   /* 수직 정렬 */
+}   
+
+.img_area img {
+	width: 150px;
+	height: 150px;
+	margin: 5px;
+	border-radius: 30%;
+	transition: all 0.2s linear;   /* 부드럽게 확대 */
+}
+
+.img_area:hover img {
+	transform: scale(1.1);   /* 이미지 확대 */
+}
+
+.text_area {
+	width: 200px;
+	height: 150px;
+	text-align: center;
+}
+
+.text_area > h2 {
+	font-size: 20px;
+	width: 200px;
+	overflow:hidden;
+    white-space : nowrap;
+    text-overflow: ellipsis;
+}
+
+.text_area > h2:hover {
+	text-decoration: underline;
+}
+
+.text_area > p {
+	margin-bottom: 1px;
+}

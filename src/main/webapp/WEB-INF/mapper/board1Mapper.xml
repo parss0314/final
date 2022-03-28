@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="kr.co.jhta.ultali.board1">
+  
+	<select id="selectAll_major" parameterType="int" resultType="cdto">
+		SELECT c_no, major_no, sub_no, mem_id, c_name, c_loc, c_place, c_date, c_time, c_price, c_count, c_image, c_detail, c_hits
+  		FROM club
+  		WHERE  major_no = #{major_no}
+  	</select>
+  	
+  	<select id="countBoard" resultType="int">
+    	SELECT COUNT(*) FROM CLUB
+    	WHERE major_no = #{major_no}
+	</select>
+	
+	<!-- 페이징 처리 후 게시글 조회 -->
+	<select id="selectBoard" resultType="cdto">
+	    SELECT * 
+	        FROM (
+	            SELECT ROWNUM RN, A.* 
+	                FROM (
+	                        SELECT * 
+	                        FROM CLUB 
+	                        WHERE major_no = #{major_no}
+	                        ORDER BY C_NO DESC 
+	                        ) A
+	                )
+	    WHERE RN BETWEEN #{start} AND #{end}
+	</select>
+	
+	<delete id="deleteBoard">
+		DELETE FROM club
+		WHERE c_no = #{c_no}
+	</delete>
+  
+  	<insert id="insertApp" parameterType="AppDto">
+  		INSERT INTO applyapp
+  		VALUES ( app_no_seq.nextval, #{mem_name}, #{mem_id}, #{gender}, #{mem_phone}, #{app_detail}, #{c_no} )
+  	</insert>
+  	
+  	<select id="selectTop" parameterType="int" resultType="cdto">
+		SELECT *
+		FROM ( SELECT * FROM club ORDER BY c_hits DESC )
+		WHERE major_no = #{major_no}
+		AND ROWNUM &lt; 5
+  	</select>
+
+  	<select id="selectListSort0" resultType="cdto">
+  		SELECT * 
+	    FROM ( SELECT ROWNUM RN, A.* 
+			   FROM ( SELECT * 
+	                  FROM CLUB 
+	                  WHERE major_no = #{major_no}
+	                  ORDER BY c_hits DESC ) A )
+	    WHERE RN BETWEEN #{start} AND #{end}
+  	</select>
+  
+</mapper>
