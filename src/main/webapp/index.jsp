@@ -11,6 +11,6 @@
 <title>울타리 :: 우리가 이어지는 공간</title>
 </head>
 <body>
-    <a href="src/main/webapp/views/home/home.jsp">이동</a>
+    <a href="${path}/home">이동</a>
 </body>
 </html>
